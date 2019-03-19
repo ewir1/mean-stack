@@ -1,0 +1,61 @@
+<div class="container mt-3" *ngIf="!loading">
+  <div class="flex-space">
+    <a class="btn left" [routerLink]="['/list']">Back to list</a>
+  </div>
+  <div class="row">
+    <div class="card">
+      <div class="card-content">
+        <form #personForm="ngForm" (ngSubmit)="addNewPerson(personForm)">
+          <div class="row">
+            <div class="input-field">
+              <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="peopleService.selectedPerson.firstName"
+                placeholder="Enter your first name">
+            </div>
+            <div class="input-field">
+              <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="peopleService.selectedPerson.lastName"
+                placeholder="Enter your last name">
+            </div>
+            <div class="input-field">
+              <input type="number" name="age" #age="ngModel" [(ngModel)]="peopleService.selectedPerson.age" placeholder="Enter your age">
+            </div>
+            <div class="input-field">
+              <input type="text" name="phone" #phone="ngModel" [(ngModel)]="peopleService.selectedPerson.phone"
+                placeholder="Enter your number phone">
+            </div>
+            <div class="input-field">
+              <input type="text" name="position" #position="ngModel" [(ngModel)]="peopleService.selectedPerson.position"
+                placeholder="Enter your position job">
+            </div>
+            <div class="input-field">
+              <input type="text" name="facebook" #facebook="ngModel" [(ngModel)]="peopleService.selectedPerson.facebook"
+                placeholder="Enter your facebook url">
+            </div>
+            <div class="input-field">
+              <input type="text" name="twitter" #twitter="ngModel" [(ngModel)]="peopleService.selectedPerson.twitter"
+                placeholder="Enter your twitter url">
+            </div>
+            <div class="input-field">
+              <input type="text" name="linkedin" #linkedin="ngModel" [(ngModel)]="peopleService.selectedPerson.linkedin"
+                placeholder="Enter your linkedin url">
+            </div>
+            <div class="card-action">
+              <div class="input-field">
+                <button class="btn left mr-2" (click)="resetForm(personForm)">Clean</button>
+                <button class="btn right">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex-space w-80" *ngIf="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>

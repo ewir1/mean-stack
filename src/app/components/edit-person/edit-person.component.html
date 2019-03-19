@@ -1,0 +1,61 @@
+<div class="container mt-3" *ngIf="!loading">
+  <div class="flex-space">
+    <div class="card-panel">
+      <span class="blue-text text-darken-2">
+        <h3>{{ person.firstName }} {{ person.lastName }}</h3>
+      </span>
+    </div>
+
+    <a class="btn right" [routerLink]="['/list']">Back to list</a>
+  </div>
+  <div class="row">
+    <div class="card">
+      <div class="card-content">
+        <form (ngSubmit)="savePerson()" #form="ngForm">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="peopleService.selectedPerson._id">
+          <div class="row">
+            <div class="input-field">
+              <input [(ngModel)]="person.firstName" type="text" name="firstName">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.lastName" type="text" name="lastName">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.age" type="number" name="age">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.phone" type="text" name="phone">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.position" type="text" name="position">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.facebook" type="text" name="facebook">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.twitter" type="text" name="twitter">
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="person.linkedin" type="text" name="linkedin">
+            </div>
+            <div class="card-action">
+              <div class="input-field">
+                <!-- <button class="btn left mr-2" (click)="resetForm(personForm)">Clean</button> -->
+                <button class="btn right" name="button" type="submit">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex-space w-80" *ngIf="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>

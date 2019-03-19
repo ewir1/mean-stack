@@ -1,0 +1,66 @@
+<div class="container ox-mobile" *ngIf="!loading">
+  <table>
+    <thead>
+      <tr>
+        <th>Nro.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Phone Number</th>
+        <th>Position</th>
+        <th>Facebook</th>
+        <th>Twitter</th>
+        <th>Linkedin</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let person of peopleService.people; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.lastName }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.phone }}</td>
+        <td>{{ person.position}}</td>
+        <td class="text-center">
+          <a class="display-icon" href="https://{{person.facebook}}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook"></i></a>
+        </td>
+        <td class="text-center">
+          <a class="display-icon" href="https://{{person.twitter}}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter-square"></i></a>
+        </td>
+        <td class="text-center">
+          <a class="display-icon" href="https://{{person.linkedin}}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i></a>
+        </td>
+        <td>
+          <a class="waves-effect waves-light btn" [routerLink]="['/edit-person', person._id]">
+            <i class="material-icons">edit</i>
+          </a>
+        </td>
+        <td>
+          <button class="waves-effect waves-light btn" (click)="deletePerson(person._id)">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="fixed-action-btn">
+    <a [routerLink]="['/person']" class="btn-floating btn-large red">
+      <i class="material-icons">add</i>
+    </a>
+  </div>
+</div>
+
+<div class="flex-space w-80" *ngIf="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>

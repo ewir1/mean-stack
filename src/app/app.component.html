@@ -1,0 +1,17 @@
+<nav class="nav-wrapper blue">
+  <div class="container">
+    <a [routerLink]="['/list']" class="brand-logo text-light">MEAN<span class="text-bold">CRUD</span></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <a [routerLink]="['/list']" routerLinkActive="router-link-active">List</a>
+      </li>
+      <li>
+        <a [routerLink]="['/person']" routerLinkActive="router-link-active">Person</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="my-5">
+  <router-outlet></router-outlet>
+</div>
