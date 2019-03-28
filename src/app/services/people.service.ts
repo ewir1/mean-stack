@@ -8,18 +8,18 @@ import { Person } from "../models/person";
 export class PeopleService {
   selectedPerson: Person;
   people: Person[];
-  private urlApi = "https://api-mean-angular.herokuapp.com/api/mean";
+  private urlApi = 'https://api-mean-angular.herokuapp.com/api/mean';
 
   constructor(private http: HttpClient) {
     this.selectedPerson = new Person();
   }
 
-  addPerson(person: Person) {
-    return this.http.post(this.urlApi, person);
-  }
-
   getPeople() {
     return this.http.get(this.urlApi);
+  }
+
+  addPerson(person: Person) {
+    return this.http.post(this.urlApi, person);
   }
 
   getPerson(_id: string) {
