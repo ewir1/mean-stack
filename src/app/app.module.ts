@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+
 
 
 import { FormsModule } from '@angular/forms';
@@ -30,7 +32,7 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
     PeopleModule,
     ListModule
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/mean-stack' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
